@@ -1,32 +1,37 @@
 package com.infinispancache.config;
 
-import org.infinispan.Cache;
-import org.infinispan.configuration.cache.CacheMode;
-import org.infinispan.configuration.cache.ConfigurationBuilder;
-import org.infinispan.manager.DefaultCacheManager;
-import org.infinispan.manager.EmbeddedCacheManager;
-import org.infinispan.spring.provider.SpringEmbeddedCacheManager;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.cache.concurrent.ConcurrentMapCache;
+import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Arrays;
 
 @EnableCaching
 @Configuration
 public class InfinispanConfig
 {
-    @Bean
+   /* @Bean
     public CacheManager cacheManager()
     {
-       /* CacheManager cacheManager= new SpringEmbeddedCacheManager(infinispanCacheManager());
-        cacheManager.getCache("persons");
-        return cacheManager;*/
-        return new ConcurrentMapCacheManager("persons");
+        return new SpringEmbeddedCacheManager(infinispanCacheManager());
+
     }
 
     private EmbeddedCacheManager infinispanCacheManager()
     {
         return new DefaultCacheManager();
+    }*/
+
+
+    @Bean
+    public CacheManager cacheManager()
+    {
+        SimpleCacheManager cacheManager = new SimpleCacheManager();
+        //cacheManager.setCaches(Arrays.asList(new ConcurrentMapCache("addresses"),new ConcurrentMapCache("persons")));
+        cacheManager.setCaches(Arrays.asList(new ConcurrentMapCache("persons")));
+        return cacheManager;
     }
 }
