@@ -3,9 +3,7 @@ package com.infinispancache.web;
 import com.infinispancache.model.Person;
 import com.infinispancache.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +28,20 @@ public class PersonController
     {
         Optional<Person> personIterable=personRepository.findById(id);
         return personIterable;
+    }
+
+
+
+    @PostMapping(value = "/person")
+    public Person updatePerson(@RequestBody   Person person)
+    {
+        return personRepository.save(person);
+    }
+
+    @PutMapping(value = "/person")
+    public Person createPerson(@RequestBody   Person person)
+    {
+        return personRepository.save(person);
     }
 
 }

@@ -46,13 +46,20 @@
 			<scope>runtime</scope>
 		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.infinispan/infinispan-hibernate-cache -->
         <dependency>
             <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-hibernate-cache</artifactId>
-            <version>9.1.7.Final</version>
+            <artifactId>infinispan-embedded</artifactId>
         </dependency>
-        
+
+
+
+        <!-- depending on a use case, one should use Spring Context or Spring Boot jars -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.5.RELEASE</version>
+        </dependency>
+
 
         <dependency>
 			<groupId>org.springframework.boot</groupId>
