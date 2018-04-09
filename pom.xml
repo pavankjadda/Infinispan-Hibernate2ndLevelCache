@@ -46,17 +46,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-infinispan -->
+        <!-- https://mvnrepository.com/artifact/org.infinispan/infinispan-hibernate-cache -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-infinispan</artifactId>
-            <version>5.2.16.Final</version>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-hibernate-cache</artifactId>
+            <version>9.1.7.Final</version>
         </dependency>
-
-
-
-
+        
 
         <dependency>
 			<groupId>org.springframework.boot</groupId>
